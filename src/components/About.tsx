@@ -8,7 +8,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const paragraphs = [
   "I'm drawn to how people gather. Traditions, tables, and rituals carry culture forward, which makes them the oldest design system there is. I try to build with the same care.",
   "Calgary keeps me close to the mountains. Cold air, long trails, and big skies give problems the room to untangle themselves.",
-  "I move between art and technology without treating them as opposites. Galleries and codebases feed the same curiosity, and the best work happens where they overlap.",
+  "Art and technology feed the same curiosity. I move between them without treating them as opposites, and the best work happens where they overlap.",
   "And people, always. A good conversation over coffee beats a perfect brief. That's not a line: it's on my services list.",
 ];
 
