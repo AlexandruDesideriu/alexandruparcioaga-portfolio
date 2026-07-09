@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 
 const capabilities = [
   {
@@ -58,7 +57,6 @@ export default function Capabilities() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.9, delay: i * 0.08, ease }}
-            data-cursor-hover
             className="group relative border-t border-line last:border-b"
           >
             {/* Ink fill that sweeps in on hover */}
@@ -85,11 +83,6 @@ export default function Capabilities() {
               <p className="col-span-10 col-start-3 max-w-[340px] text-[14px] leading-relaxed text-muted transition-colors duration-500 group-hover:text-paper/70 md:col-span-3 md:col-start-10 md:text-[15px]">
                 {cap.blurb}
               </p>
-
-              <ArrowUpRight
-                className="absolute right-0 top-10 h-6 w-6 -translate-x-2 translate-y-2 opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 md:top-14"
-                strokeWidth={1.5}
-              />
             </div>
           </motion.article>
         ))}
