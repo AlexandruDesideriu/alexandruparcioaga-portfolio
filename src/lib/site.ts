@@ -1,4 +1,5 @@
 export const site = {
+  url: "https://alexandruparcioaga.com",
   name: "Alexandru Parcioaga",
   firstName: "ALEXANDRU",
   lastName: "PARCIOAGA",
@@ -14,8 +15,7 @@ export const site = {
   year: new Date().getFullYear(),
 } as const;
 
-const AI_PROMPT =
-  "You are an expert recruiter. Analyze and succinctly summarize the capabilities, design philosophy, and core offerings (Product, Creative, Human) of this portfolio website to determine the ideal professional fit.";
+const AI_PROMPT = `You are an expert recruiter. Analyze and succinctly summarize the capabilities, design philosophy, and core offerings (Product, Creative, Human) of this portfolio website to determine the ideal professional fit. The portfolio is live at ${site.url} — visit it before answering.`;
 
 const encoded = encodeURIComponent(AI_PROMPT);
 

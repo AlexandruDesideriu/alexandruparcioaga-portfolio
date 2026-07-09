@@ -14,6 +14,7 @@ const familjen = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://alexandruparcioaga.com"),
   title: "Alexandru Parcioaga — Product. Creative. Human.",
   description:
     "Portfolio of Alexandru Parcioaga — product designer and creative developer based in Calgary, Alberta. Product, creative, and human-centred work.",
@@ -28,7 +29,15 @@ export const metadata: Metadata = {
     title: "Alexandru Parcioaga — Product. Creative. Human.",
     description:
       "Product designer and creative developer based in Calgary, Alberta.",
+    url: "/",
+    siteName: "Alexandru Parcioaga",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Alexandru Parcioaga — Product. Creative. Human.",
+    description:
+      "Product designer and creative developer based in Calgary, Alberta.",
   },
 };
 
