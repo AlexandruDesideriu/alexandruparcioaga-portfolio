@@ -17,18 +17,18 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://alexandruparcioaga.com"),
   title: "Alexandru Parcioaga — Product. Creative. Human.",
   description:
-    "Portfolio of Alexandru Parcioaga — product designer and creative developer based in Calgary, Alberta. Product, creative, and human-centred work.",
+    "Portfolio of Alexandru Parcioaga — product designer and creative based in Calgary, Alberta. Product, creative, and human-centred work.",
   keywords: [
     "Alexandru Parcioaga",
     "product design",
-    "creative developer",
+    "creative",
     "portfolio",
     "Calgary",
   ],
   openGraph: {
     title: "Alexandru Parcioaga — Product. Creative. Human.",
     description:
-      "Product designer and creative developer based in Calgary, Alberta.",
+      "Product designer and creative based in Calgary, Alberta.",
     url: "/",
     siteName: "Alexandru Parcioaga",
     type: "website",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Alexandru Parcioaga — Product. Creative. Human.",
     description:
-      "Product designer and creative developer based in Calgary, Alberta.",
+      "Product designer and creative based in Calgary, Alberta.",
   },
 };
 
