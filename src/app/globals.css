@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f4f2ec;
+  --color-ink: #111110;
+  --color-accent: #2621eb;
+  --color-muted: #75726a;
+  --color-line: #d8d4c9;
+
+  --font-sans: var(--font-familjen), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+
+  --tracking-editorial: -0.03em;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Registered under its real family name so 2D-canvas text (rasterized
+   into WebGL textures) can use it — next/font only exposes a hashed name. */
+@font-face {
+  font-family: "Familjen Grotesk";
+  src: url("/fonts/FamiljenGrotesk-700.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  /* The custom cursor replaces the native one on precise pointers only. */
+  @media (pointer: fine) {
+    body,
+    a,
+    button {
+      cursor: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Lenis smooth-scroll integration */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@layer utilities {
+  .text-display {
+    letter-spacing: var(--tracking-editorial);
+    line-height: 0.94;
+  }
+}
