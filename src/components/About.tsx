@@ -6,10 +6,10 @@ import { site } from "@/lib/site";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const paragraphs = [
-  "I'm drawn to how people gather — the traditions, tables, and rituals that carry culture forward. That's the oldest design system there is, and I try to build with the same care.",
-  "Calgary keeps me close to the mountains. Time outside — cold air, long trails, big skies — is where problems untangle themselves.",
+  "I'm drawn to how people gather. Traditions, tables, and rituals carry culture forward, which makes them the oldest design system there is. I try to build with the same care.",
+  "Calgary keeps me close to the mountains. Cold air, long trails, and big skies give problems the room to untangle themselves.",
   "I move between art and technology without treating them as opposites. Galleries and codebases feed the same curiosity, and the best work happens where they overlap.",
-  "And people, always. A good conversation over coffee beats a perfect brief — that's not a line, it's on my services list.",
+  "And people, always. A good conversation over coffee beats a perfect brief. That's not a line: it's on my services list.",
 ];
 
 const index = [
@@ -109,7 +109,7 @@ export default function About() {
           </div>
 
           <p className="mt-8 text-[14px] leading-relaxed text-muted">
-            Say hello — the kettle is probably already on.{" "}
+            Say hello. The kettle is probably already on.{" "}
             <a
               href={`mailto:${site.email}`}
               className="text-ink underline underline-offset-4 transition-colors duration-300 hover:text-accent"
