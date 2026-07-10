@@ -121,6 +121,7 @@ function useNameTexture() {
   const [result, setResult] = useState<{
     texture: THREE.CanvasTexture;
     aspect: number; // height / width
+    padX: number; //   horizontal padding as a fraction of texture width
   } | null>(null);
 
   useEffect(() => {
@@ -197,7 +198,11 @@ function useNameTexture() {
     };
 
     const cancel = drawWhenFontReady(draw);
-    setResult({ texture: tex, aspect: canvas.height / canvas.width });
+    setResult({
+      texture: tex,
+      aspect: canvas.height / canvas.width,
+      padX: pad / canvas.width,
+    });
 
     return () => {
       cancel();
@@ -347,7 +352,9 @@ function NamePlane({
   if (!name) return null;
 
   const height = width * name.aspect;
-  const x = centered ? 0 : anchorLeftX + width / 2;
+  // Shift left by the texture's internal padding so the first glyph's
+  // advance box, not the padded bitmap, sits on the anchor line.
+  const x = centered ? 0 : anchorLeftX + width / 2 - name.padX * width;
 
   return (
     <mesh position={[x, centerY, 0]}>
@@ -368,12 +375,18 @@ function NamePlane({
 
 function HeroContent() {
   const viewport = useThree((state) => state.viewport);
+  const size = useThree((state) => state.size);
   const pointer = useThree((state) => state.pointer);
   const groupRef = useRef<THREE.Group>(null);
 
   const w = viewport.width;
   const h = viewport.height;
   const isNarrow = w / h < 1.05;
+
+  // Match the DOM overlays' fixed pixel margin (px-5 / md:px-10) so the
+  // name's left edge lines up with the editorial text below it.
+  const marginPx = size.width >= 768 ? 40 : 20;
+  const marginWorld = marginPx * (w / size.width);
 
   // Gentle parallax of the whole composition against the cursor.
   useFrame(() => {
@@ -384,7 +397,7 @@ function HeroContent() {
   });
 
   const nameWidth = isNarrow ? w * 0.92 : w * 0.72;
-  const nameX = -w / 2 + w * 0.05;
+  const nameX = -w / 2 + marginWorld;
   const nameY = isNarrow ? h * 0.14 : h * 0.03;
   const drumRadius = isNarrow ? w * 0.17 : w * 0.085;
   const drumPosition: [number, number, number] = isNarrow
