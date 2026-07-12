@@ -62,7 +62,7 @@ export default function Capabilities() {
             {/* Ink fill that sweeps in on hover */}
             <div className="absolute inset-0 origin-bottom scale-y-0 bg-ink transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100" />
 
-            <div className="relative grid grid-cols-12 items-baseline gap-y-6 py-10 transition-colors duration-500 group-hover:text-paper md:py-14">
+            <div className="relative grid grid-cols-12 items-center gap-y-6 py-10 transition-colors duration-500 group-hover:text-paper md:py-14">
               <span className="col-span-2 text-[13px] font-medium tracking-[0.14em] text-muted transition-colors duration-500 group-hover:text-paper/60 md:col-span-1">
                 ({cap.index})
               </span>
