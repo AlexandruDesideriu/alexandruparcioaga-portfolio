@@ -171,8 +171,12 @@ function useNameTexture() {
 
       lines.forEach((line, lineIndex) => {
         const y = pad + lineIndex * lineHeight;
+        // Optical alignment: offset by the first glyph's left side
+        // bearing so the ink of every line starts flush at the margin
+        // (P's stem sits further into its advance box than A's foot).
+        const x = pad + ctx.measureText(line).actualBoundingBoxLeft;
         ctx.fillStyle = INK;
-        ctx.fillText(line, pad, y);
+        ctx.fillText(line, x, y);
 
         // Accent glyphs: repaint the full (correctly kerned) line in the
         // accent color, clipped to just that character's advance span.
@@ -182,14 +186,14 @@ function useNameTexture() {
           ctx.save();
           ctx.beginPath();
           ctx.rect(
-            pad + before,
+            x + before,
             y - fontSize * 0.2,
             upTo - before,
             fontSize * 1.5
           );
           ctx.clip();
           ctx.fillStyle = ACCENT;
-          ctx.fillText(line, pad, y);
+          ctx.fillText(line, x, y);
           ctx.restore();
         }
       });
